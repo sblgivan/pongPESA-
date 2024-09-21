@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - pongPESA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <form id="loginForm">
+            <h2>Login to pongPESA</h2>
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            if (username) {
+                // Save user session and redirect to game page
+                sessionStorage.setItem("username", username);
+                sessionStorage.setItem("balance", 1000);  // Initial balance of 1000 shillings
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+</html>
